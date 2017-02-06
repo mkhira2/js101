@@ -19,7 +19,7 @@ var addOne = function(num) {
 // Fix the following code so doubleNum(2) wil equal 4. 
 
 var doubleNum = function(num) {
-	num * 2
+	return num * 2
 }
 
 /**
@@ -29,6 +29,22 @@ var doubleNum = function(num) {
  * inputs and computes the sum of those two numbers.
  */
 
+ var sum = function(num1, num2) {
+	if (typeof num1 !== 'number' || typeof num2 !== 'number') {
+		return null
+	}
+	if (isNegative(num1) || isNegative(num2)) {
+		return null
+	}
+   return num1 + num2
+}
+
+ // PART 2.5
+
+// modify your sum() function so that it will return null
+// if either of the inputs is not a number.
+
+
 
 // PART 3
 
@@ -37,11 +53,21 @@ var doubleNum = function(num) {
 // repeating yourself, use your sum function inside 
 // of your average function.
 
+var average = function(num1, num2) {
+	return sum(num1, num2) / 2
+}
 
 // Part 4
 
 // Write a function called isNegative that will tell 
 // whether a number is negative or not.
+
+var isNegative = function(num) {
+    if (num < 0) {
+        return true
+    }
+    return false
+}
 
 
 // Now, modify your sum function again, so that it 
@@ -50,11 +76,27 @@ var doubleNum = function(num) {
 // function inside your sum funciton ***
 
 
+
 // Part 5
 
 // Write a function that will find the minimum of four 
 // input numbers. You can do it using nested if statements,
 // boolean operators, or both (but not neither).
+
+var minimum = function(num1, num2, num3, num4) {
+	if (num1 < num2 && num1 < num3 && num1 < num4) {
+		return num1
+
+	}  else if (num2 < num1 && num2 < num3 && num2 < num4) {
+		return num2
+
+	} else if (num3 < num1 && num3 < num2 && num3 < num4) {
+		return num3
+
+	} else if (num4 < num1 && num4 < num2 && num4 < num3) {
+		return num4
+	}
+}
 
 
 // Part 6
@@ -62,6 +104,16 @@ var doubleNum = function(num) {
 // Using logical operators, write a function that will
 // return true if either input is a string, but not 
 // both or neither. 
+
+var justOneString = function(input1, input2) {
+    if (typeof input1 !== 'string' && typeof input2 !== 'string') {
+		return false
+	}
+	if (typeof input1 === 'string' && typeof input2 === 'string') {
+		return false
+	}
+	return true
+}
 
 
 // HARD MODE
@@ -75,8 +127,9 @@ var doubleNum = function(num) {
 // modify global variables, although that's not a good
 // pattern for production code.
 
-var doTwice = function() {
-
+var doTwice = function(func) {
+	func()
+	func()
 }
 
 var helloWorld = function() {
@@ -94,8 +147,10 @@ doTwice(helloWorld) // should print 'hello world' to the console twice.
 // the value of a certain global variable, called ORACLE, is 
 // "YES." Otherwise, it will does nothing.
 
-var conditionallyInvoke = function() {
-
+var conditionallyInvoke = function(func) {
+	if (ORACLE === 'YES') {
+		func()
+	}
 }
 
 var ORACLE = 'NO'
@@ -167,8 +222,18 @@ describe('Function', function() {
 			assert.equal(19, sum(8, 11))
 			assert.equal(104, sum(4, 100))
 			assert.equal(6176, sum(867, 5309))
+		})
+	})
+	describe('#sum()', function(){
+		it('should return null if either input is not a number', function(){
+			checkFuncBasics('sum',2)
 			assert.equal(null, sum('867', 5309))
 			assert.equal(null, sum(true, 5))
+		})
+	})
+	describe('#sum()', function(){
+		it('should return null if either input is negative', function(){
+			checkFuncBasics('sum',2)
 			assert.equal(null, sum(5,-5))
 		})
 	})
@@ -197,7 +262,7 @@ describe('Function', function() {
 		})
 	})
 	describe('#justOneString', function(){
-		it('should return true if one input is a string', function(){
+		it('should return true if exactly one input is a string', function(){
 			checkFuncBasics('justOneString',2)
 			assert.equal(true, justOneString('a',5))
 			assert.equal(true, justOneString(6,'dotron'))
