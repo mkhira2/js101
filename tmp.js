@@ -1,5 +1,4 @@
 var assert = require('chai').assert
-
 // Example
 
 // The purpose of this first exercise is just to show how 
@@ -11,7 +10,7 @@ var assert = require('chai').assert
 // Write a function called addOne() that returns the input number, plus one. 
 
 var addOne = function(num) {
-	return num + 1
+    return num + 1
 }
 
 // Part 1
@@ -19,7 +18,7 @@ var addOne = function(num) {
 // Fix the following code so doubleNum(2) wil equal 4. 
 
 var doubleNum = function(num) {
-	return num * 2
+    return num * 2
 }
 
 /**
@@ -29,17 +28,17 @@ var doubleNum = function(num) {
  * inputs and computes the sum of those two numbers.
  */
 
- var sum = function(num1, num2) {
-	if (typeof num1 !== 'number' || typeof num2 !== 'number') {
-		return null
-	}
-	if (isNegative(num1) || isNegative(num2)) {
-		return null
-	}
-   return num1 + num2
+var sum = function(num1, num2) {
+    if (typeof num1 !== 'number' || typeof num2 !== 'number') {
+        return null
+    }
+    if (isNegative(num1) || isNegative(num2)) {
+        return null
+    }
+    return num1 + num2
 }
 
- // PART 2.5
+// PART 2.5
 
 // modify your sum() function so that it will return null
 // if either of the inputs is not a number.
@@ -54,7 +53,7 @@ var doubleNum = function(num) {
 // of your average function.
 
 var average = function(num1, num2) {
-	return sum(num1, num2) / 2
+    return sum(num1, num2) / 2
 }
 
 // Part 4
@@ -63,10 +62,7 @@ var average = function(num1, num2) {
 // whether a number is negative or not.
 
 var isNegative = function(num) {
-    if (num < 0) {
-        return true
-    }
-    return false
+    return num < 0
 }
 
 
@@ -84,18 +80,16 @@ var isNegative = function(num) {
 // boolean operators, or both (but not neither).
 
 var minimum = function(num1, num2, num3, num4) {
-	if (num1 < num2 && num1 < num3 && num1 < num4) {
-		return num1
-
-	}  else if (num2 < num1 && num2 < num3 && num2 < num4) {
-		return num2
-
-	} else if (num3 < num1 && num3 < num2 && num3 < num4) {
-		return num3
-
-	} else if (num4 < num1 && num4 < num2 && num4 < num3) {
-		return num4
-	}
+    if (num1 < num2 && num1 < num3 && num1 < num4) {
+        return num1
+    }
+    if (num2 < num1 && num2 < num3 && num2 < num4) {
+        return num2
+    }
+    if (num3 < num1 && num3 < num2 && num3 << num4) {
+        return num3
+    }
+    return num4
 }
 
 
@@ -107,12 +101,12 @@ var minimum = function(num1, num2, num3, num4) {
 
 var justOneString = function(input1, input2) {
     if (typeof input1 !== 'string' && typeof input2 !== 'string') {
-		return false
-	}
-	if (typeof input1 === 'string' && typeof input2 === 'string') {
-		return false
-	}
-	return true
+        return false
+    }
+    if (typeof input1 === 'string' && typeof input2 === 'string') {
+        return false
+    }
+    return true
 }
 
 
@@ -128,12 +122,12 @@ var justOneString = function(input1, input2) {
 // pattern for production code.
 
 var doTwice = function(func) {
-	func()
-	func()
+    func()
+    func()
 }
 
 var helloWorld = function() {
-	console.log('hello world')
+    console.log('hello world')
 }
 
 
@@ -148,9 +142,9 @@ doTwice(helloWorld) // should print 'hello world' to the console twice.
 // "YES." Otherwise, it will does nothing.
 
 var conditionallyInvoke = function(func) {
-	if (ORACLE === 'YES') {
-		func()
-	}
+    if (ORACLE === 'YES') {
+        func()
+    }
 }
 
 var ORACLE = 'NO'
@@ -168,23 +162,20 @@ conditionallyInvoke(helloWorld) // should print hello world
 
 // Part 9
 
-var factory = function() {
-
-}
+var factory = function() {}
 
 
 // Part 10
 
 var factory2 = function() {
-	// you want more?
+    // you want more?
 }
-	
+
 // Part 11
 
 var factory3 = function(stuff) {
-	// This can't be healthy...	
+    // This can't be healthy...	
 }
-
 console.log('********************************************************************************************************************************************')
 console.log('')
 console.log('Test Results Below')
